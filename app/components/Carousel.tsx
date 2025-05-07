@@ -1,5 +1,4 @@
-'use client'
-
+"use client"
 import { Card } from '@/components/ui/card'
 import React, { useEffect, useState } from 'react'
 import Stripe from 'stripe'
@@ -24,8 +23,8 @@ const Carousel = ({ products }: Props) => {
   const price = currentP.default_price as Stripe.Price
 
   return (
-    <Card className="w-full max-w-md mx-auto p-4">
-      {currentP.images && currentP.images[0] && (
+    <Card className="w-full p-4 bg-white border border-purple-200 rounded-lg shadow-md">
+      {currentP.images?.[0] && (
         <div className="relative w-full h-64 rounded overflow-hidden">
           <Image
             alt={currentP.name}
@@ -36,9 +35,9 @@ const Carousel = ({ products }: Props) => {
         </div>
       )}
       <div className="mt-4 text-center">
-        <h3 className="text-xl font-semibold">{currentP.name}</h3>
+        <h3 className="text-xl font-semibold text-purple-800">{currentP.name}</h3>
         {price?.unit_amount && (
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-pink-500">
             ${price.unit_amount / 100} {price.currency?.toUpperCase()}
           </p>
         )}
